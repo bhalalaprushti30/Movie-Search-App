@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;1,200;1,700&display=swap");
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+	background: linear-gradient(45deg, #000000, #ff1493);
+	font-family: "Poppins", sans-serif;
+	background-attachment: fixed;
+	color: white;
+	scroll-behavior: smooth;
+}
+
+/* --- Global Theme Variables --- */
+:root {
+	--primary-color: #000000;
+	--secondary-color: #ff1493;
+	--accent-color: #ff69b4;
+	--glass-bg: rgba(255, 255, 255, 0.1);
+	--glass-border: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Fixed Sticky Header --- */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	padding: 0.7rem 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: var(--primary-color);
+	box-shadow: 0px 4px 10px rgba(255, 20, 147, 0.3);
+	border-bottom: 2px solid var(--glass-border);
+	transition: all 0.3s ease-in-out;
+}
+
+/* --- Navigation List --- */
+header ul {
+	display: flex;
+	gap: 15px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+/* --- Navigation Items --- */
+header ul li {
+	font-size: 18px;
+	font-weight: 500;
+	border-radius: 5px;
+	padding: 10px 15px;
+	color: var(--secondary-color);
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	background: var(--glass-bg);
+	backdrop-filter: blur(8px);
+}
+
+/* --- Hover Effect --- */
+header ul li:hover {
+	background: var(--accent-color);
+	color: white;
+	transform: scale(1.1);
+}
+
+/* --- Add spacing to prevent content from hiding under navbar --- */
+body {
+	padding-top: 80px;
+}
+
+/* --- Responsive Design --- */
+@media screen and (max-width: 768px) {
+	header {
+		flex-direction: column;
+		text-align: center;
+	}
+}
+
+/* --- Logo & Icons --- */
+.logo {
+	width: auto;
+	height: 50px;
+}
+
+.git {
+	width: auto;
+	height: 30px;
+}
+
+.logos {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+/* --- Search Box --- */
+.search {
+	background: transparent;
+	border: 2px solid var(--accent-color);
+	padding: 0.5rem 1rem;
+	border-radius: 50px;
+	color: var(--secondary-color);
+	font-size: 1rem;
+	transition: all 0.3s ease-in-out;
+}
+
+.search:focus {
+	outline: none;
+	background-color: var(--accent-color);
+	color: white;
+}
+
+/* --- Main Content --- */
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+	margin-top: 10px;
+}
+
+/* --- Movie Cards (Glassmorphism Effect) --- */
+.movie {
+	width: 300px;
+	border-radius: 15px;
+	background: var(--glass-bg);
+	backdrop-filter: blur(12px);
+	box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.3s ease-in-out;
+}
+
+.movie:hover {
+	transform: scale(1.05);
+}
+
+.movie img {
+	width: 100%;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.movie-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 1rem 1rem;
+	color: #eee;
+}
+
+.movie-info h3 {
+	margin-top: 0;
+}
+
+.movie-info span {
+	background-color: var(--secondary-color);
+	padding: 5px 10px;
+	border-radius: 3px;
+	font-weight: bold;
+	color: white;
+}
+
+/* --- Rating Colors --- */
+.movie-info span.green {
+	color: lightgreen;
+}
+
+.movie-info span.orange {
+	color: orange;
+}
+
+.movie-info span.red {
+	color: red;
+}
+
+/* --- Movie Overview (Animated Slide Up) --- */
+.overview {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.9);
+	color: black;
+	padding: 1rem;
+	transform: translateY(100%);
+	transition: transform 0.5s ease-in-out;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+
+.movie:hover .overview {
+	transform: translateY(0);
+}
+
+/* --- Movie Details Overlay (Full-Screen) --- */
+.overlay {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	background: rgba(0, 0, 0, 0.95); /* Dark overlay */
+	overflow-x: hidden;
+	transition: width 0.5s ease-in-out;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+/* --- Close Button (Stylish "X") --- */
+.closebtn {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	font-size: 50px;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	transition: transform 0.3s, color 0.3s;
+}
+
+.closebtn:hover {
+	color: var(--accent-color);
+	transform: rotate(90deg);
+}
+
+/* --- Overlay Content (Centered) --- */
+.overlay-content {
+	width: 90%;
+	max-width: 800px;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 20px;
+	border-radius: 15px;
+	backdrop-filter: blur(10px);
+	box-shadow: 0 0 15px rgba(255, 20, 147, 0.3);
+	color: white;
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* --- Show Overlay Content (When Active) --- */
+.overlay.active {
+	width: 100%;
+}
+
+.overlay.active .overlay-content {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* --- Navigation Arrows --- */
+.arrow {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 40px;
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+	background: rgba(255, 255, 255, 0.2);
+	padding: 15px;
+	border-radius: 50%;
+	transition: all 0.3s ease-in-out;
+}
+
+.arrow:hover {
+	background: var(--accent-color);
+	color: white;
+	transform: scale(1.2);
+}
+
+.left-arrow {
+	left: 5%;
+}
+
+.right-arrow {
+	right: 5%;
+}
+
+/* --- Responsive Design (Mobile-Friendly) --- */
+@media screen and (max-width: 768px) {
+	.overlay-content {
+		width: 95%;
+	}
+
+	.arrow {
+		font-size: 30px;
+		padding: 10px;
+	}
+
+	.closebtn {
+		font-size: 40px;
+		top: 15px;
+		right: 20px;
+	}
+}
+
+
+/* --- Filter Tags --- */
+#tags {
+	width: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin: 10px auto;
+}
+
+.tag {
+	padding: 10px 20px;
+	background: var(--glass-bg);
+	border: 2px solid var(--glass-border);
+	border-radius: 50px;
+	margin: 5px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.tag:hover {
+	background: var(--accent-color);
+	color: white;
+}
+
+.tag.highlight {
+	background-color: white;
+	color: var(--primary-color);
+}
+
+/* --- Pagination --- */
+.pagination {
+	display: flex;
+	margin: 10px 30px 0;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.page {
+	padding: 15px;
+	cursor: pointer;
+	border-radius: 50px;
+	background: var(--glass-bg);
+	transition: all 0.3s;
+}
+
+.page:hover {
+	background: var(--accent-color);
+	color: white;
+}
+
+.page.disabled {
+	cursor: not-allowed;
+	color: grey;
+}
+
+.current {
+	padding: 10px 20px;
+	border-radius: 50%;
+	border: 5px solid var(--secondary-color);
+	font-size: 20px;
+	font-weight: 600;
+}
+
+/* --- Buttons --- */
+.know-more {
+	background-color: var(--accent-color);
+	color: white;
+	font-size: 16px;
+	font-weight: bold;
+	border: 0;
+	border-radius: 50px;
+	padding: 10px 20px;
+	margin-top: 5px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+
+.know-more:hover {
+	background: white;
+	color: var(--accent-color);
+}
+
+/* --- Footer (Styled "by Prushti") --- */
+footer {
+	text-align: center;
+	padding: 20px;
+	background: var(--primary-color);
+	position: relative;
+}
+
+.gateremark {
+	color: var(--accent-color);
+	text-decoration: none;
+	font-size: 18px;
+	font-weight: bold;
+	position: relative;
+	display: inline-block;
+	transition: all 0.3s ease-in-out;
+}
+
+.gateremark::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background: var(--accent-color);
+	left: 0;
+	bottom: -5px;
+	transform: scaleX(0);
+	transition: transform 0.3s ease-in-out;
+}
+
+.gateremark:hover {
+	color: white;
+	text-shadow: 0px 0px 10px var(--accent-color);
+}
+
+.gateremark:hover::after {
+	transform: scaleX(1);
+}
+
+/* --- Responsive Design --- */
+@media screen and (max-width: 768px) {
+	header {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.movie {
+		width: 100%;
+	}
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="description" content="FilMere - Search and explore movies with ease" />
+	<meta name="keywords" content="movies, search, film, cinema, entertainment" />
+	<meta name="author" content="gateremark" />
+	<link rel="stylesheet" href="styles.css" />
+	<link rel="icon" href="img/filmico.jpg" />
+	<title>FilMere - Movie Search</title>
+	<script defer src="script.js"></script>
+	<script src="https://kit.fontawesome.com/f7a442f79b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<header>
+		<div class="logos">
+			<a href="#" aria-label="Go to homepage">
+				<img class="logo" src="img/logo.png" alt="FilMere Logo" />
+			</a>
+			<a href="https://github.com/gateremark/FilMere" title="GitHub Repository" target="_blank">
+				<img src="img/git.png" class="git" alt="GitHub Icon" />
+			</a>
+		</div>
+		<form id="form" role="search">
+			<input type="text" placeholder="Search for a movie..." id="search" class="search" aria-label="Search Movies" />
+		</form>
+	</header>
+
+	<!-- Tags Section -->
+	<div id="tags" aria-label="Movie Categories"></div>
+
+	<!-- Movie Details Overlay -->
+	<div id="myNav" class="overlay">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()" aria-label="Close overlay">&times;</a>
+		<div class="overlay-content" id="overlay-content"></div>
+		<a href="javascript:void(0)" class="arrow left-arrow" id="left-arrow" aria-label="Previous">&#8656;</a>
+		<a href="javascript:void(0)" class="arrow right-arrow" id="right-arrow" aria-label="Next">&#8658;</a>
+	</div>
+
+	<!-- Movie Cards Container -->
+	<main id="main"></main>
+
+	<!-- Pagination Controls -->
+	<div class="pagination">
+		<button class="page" id="prev" aria-label="Previous Page">&#8656; Prev</button>
+		<span class="current" id="current">1</span>
+		<button class="page" id="next" aria-label="Next Page">Next &#8658;</button>
+	</div>
+
+	<!-- Footer / Credits -->
+	<footer>
+		<a href="https://bhalalaprushti30.github.io/Personal-Portfoilio-Webpage/" class="gateremark" target="_blank">by Prushti</a>
+		<span class="loader"></span>
+	</footer>
+</body>
+</html>
