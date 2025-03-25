@@ -62,7 +62,7 @@ A stylish **movie browsing app** with a **modern UI, glassmorphism effects, and 
 ## 💖 Support  
 If you like this project, **give it a ⭐ on GitHub!** 😊  
 
-📧 Contact me at [your-email@example.com](Prushti.bhalala3010@gmail.com)  
+📧 Contact me at [Prushti.bhalala3010@gmail.com](Prushti.bhalala3010@gmail.com)  
 👨‍💻 Developed by **[Prushti Bhalala]**  
 
 ---
